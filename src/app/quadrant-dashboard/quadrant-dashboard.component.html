@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-6">
+    <app-miq-view></app-miq-view>
+  </div>
+  <div class="col-lg-6">
+    <app-process-mining></app-process-mining>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+      <app-decision-tree (openModal)="openChartModal($event)"></app-decision-tree>
+    </div>
+    <div class="col-lg-6">
+      <app-alerts-notifications (openModal)="openMessageModal($event)"></app-alerts-notifications>
+    </div>
+  </div>

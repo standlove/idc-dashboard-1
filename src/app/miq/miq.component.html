@@ -1,0 +1,85 @@
+<div class="row">
+
+  <div class="col-lg-9">
+<div class="miq-container">
+  <div class="miq-title">
+    <img height="32" width="32" class="d-inline-block">
+    <h5 class="d-inline-block">MIQ View</h5>
+    <div class="date-tabs">
+      <div class="d-inline">
+        <div class="tab" [class.active]="activeTab == 'daily'" (click)="changeTab('daily')"> Daily </div>
+      </div>
+      <div class="d-inline">
+        <div class="tab" [class.active]="activeTab == 'weekly'" (click)="changeTab('weekly')"> Weekly </div>
+      </div>
+      <div class="d-inline">
+        <div class="tab" [class.active]="activeTab == 'monthly'" (click)="changeTab('monthly')"> Monthly </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-button-container d-flex justify-content-end">
+    <button mat-mini-fab class="d-inline" mat-button [matMenuTriggerFor]="menu" >
+      <mat-icon aria-label="Change Chart Type">show_chart</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="chartChange('lineChart')">Line Chart</button>
+      <button mat-menu-item (click)="chartChange('barChart')">Bar Chart</button>
+    </mat-menu>
+  </div>
+
+  <div class="crumb-container">
+    <div class="crumb d-inline">Plant</div>
+    <mat-icon>chevron_right</mat-icon>
+    <div class="crumb d-inline">Equipment</div>
+    <mat-icon>chevron_right</mat-icon>
+    <div class="crumb d-inline">Product</div>
+    <mat-icon>chevron_right</mat-icon>
+    <div class="crumb d-inline"><b>Batch {{batchNumber}}</b></div>
+  </div>
+
+
+  <div class="chart-container">
+      <ngx-charts-line-chart
+        *ngIf="activeChart == 'lineChart'"
+        [results]="lineData"
+        [scheme]="colorScheme"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [yScaleMax]="100"
+        [yScaleMin]="0"
+        (select)="moveQuadView($event)">
+      </ngx-charts-line-chart>
+
+      <ngx-charts-bar-vertical
+        *ngIf="activeChart == 'barChart'"
+        [results]="barData"
+        [scheme]="colorScheme"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [yScaleMax]="100"
+        [barPadding]="70"
+        (select)="moveQuadView($event)">
+      </ngx-charts-bar-vertical>
+  </div>
+  <div class="chart-button-container d-flex justify-content-end">
+      <button mat-mini-fab class="d-inline" mat-button [matMenuTriggerFor]="yearMenu">
+        <mat-icon aria-label="Change Chart Type">date_range</mat-icon>
+      </button>
+      <mat-menu #yearMenu="matMenu">
+        <button mat-menu-item>2017</button>
+        <button mat-menu-item>2016</button>
+        <button mat-menu-item>2015</button>
+        <button mat-menu-item>2014</button>
+      </mat-menu>
+    </div>
+</div>
+</div>
+<div class="col-lg-3">
+  <app-top-product></app-top-product>
+  <app-drop-history></app-drop-history>
+</div>
+
+</div>

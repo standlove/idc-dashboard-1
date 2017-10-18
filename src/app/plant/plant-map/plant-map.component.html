@@ -1,0 +1,33 @@
+<agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="zoom" [zoomControl]="false" [streetViewControl]="false">
+
+    <agm-marker
+    *ngFor="let plant of plants;"
+    [latitude]="plant.latitude"
+    [longitude]="plant.longitude">
+
+  <agm-info-window>
+    <h6 class="plant-title">{{plant.name}}</h6>
+    <hr>
+    <table class="product-table">
+        <tr *ngFor="let product of plant.products;" class="product-row" (click)="productClicked(product.id)">
+          <td><div class="green-dot"></div></td>
+          <td><div class="product-title">{{product.name}}</div></td>
+          <td><div class="product-yield">{{product.yield}} %</div></td>
+        </tr>
+      </table>
+  </agm-info-window>
+
+</agm-marker>
+
+</agm-map>
+<div class="zoom-slider-container">
+  <mat-slider
+    class="example-margin"
+    [max]="20"
+    [min]="0"
+    [step]="1"
+    [thumb-label]="true"
+    [value]="zoom"
+    (input)="zoomChanged($event)">
+</mat-slider>
+</div>

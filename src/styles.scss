@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+body {
+  min-height: 95vh;
+  background: #f3f3f3;
+  font-family: 'Open Sans', sans-serif;
+}

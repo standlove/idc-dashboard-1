@@ -1,0 +1,12 @@
+<div class="top-container">
+    <div class="product-title">
+        <img height="32" width="32" class="d-inline-block">
+        <h5 class="d-inline-block">Top 5 Product</h5>
+    </div>
+    <div class="product-container">
+      <div *ngFor="let product of topProducts" class="product-row">
+        <div class="product-name"><div class="dot" [style.background]="product.bulletColor"></div>{{product.productName}}</div>
+        <div class="product-city">{{product.city}}</div>
+      </div>
+    </div>
+</div>

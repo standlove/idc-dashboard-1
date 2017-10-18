@@ -1,0 +1,24 @@
+.navbar{
+  background: #FFF;
+  box-shadow: 0px 2px 8px 0px rgb(177, 177, 177);
+  z-index: 300;
+  .navbar-brand{
+    color:#868686;
+    font-size: 1.15rem;
+
+    img{
+      margin-right: 10px;
+    }
+  }
+  input{
+    background: #f3f3f3;
+    margin-top: -9px;
+    margin-bottom: -9px;
+    height: 60px;
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+  }
+}
