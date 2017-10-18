@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  serverHost: 'http://127.0.0.1:10010/api/v1/'
+  serverHost: 'https://floating-spire-26311.herokuapp.com//api/v1/'
 };
